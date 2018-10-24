@@ -14,8 +14,8 @@ buildscript {
     }
 }
 
-group 'california'
-version 'mams'
+group 'com.california'
+version '0.0.1'
 
 allprojects {
     apply plugin: "java"
@@ -116,4 +116,36 @@ allprojects {
     /* bootJar {
          classifier = 'app'
      }*/
+
+    // declaration of plugins (1)
+    ['java', 'maven-publish'].each {
+        apply plugin : it
+    }
+
+    publishing {
+        publications {
+            myPublication(MavenPublication) {
+                // telling gradle to publish project's jar archive (2)
+                from components.java
+                // telling gradle to publish README file (2)
+                artifact ('mams-0.0.1.jar') {
+                    classifier = 'null'
+                    extension  = 'jar'
+                }
+                groupId 'com.california'
+                artifactId 'mams'
+            }
+        }
+        // telling gradle to publish artifact to local directory (3)
+        repositories {
+            maven {
+                url "http://maven.xhuabu.com/nexus/repository/3rd-party/"
+                credentials {
+                    username 'admin'
+                    password 'qs6xx'
+                }
+            }
+        }
+    }
+
 }

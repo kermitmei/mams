@@ -1,0 +1,119 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven {
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+group 'california'
+version 'mams'
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'application'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    dependencies {
+
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.0.5.RELEASE'
+
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.5.RELEASE'
+        // spring aop
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.0.5.RELEASE'
+
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+        compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.0.5.RELEASE'
+
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-properties-migrator
+        compile group: 'org.springframework.boot', name: 'spring-boot-properties-migrator', version: '2.0.5.RELEASE'
+
+        //==== redis
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.0.5.RELEASE'
+
+        // === mysql
+        // https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter
+        compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.1.10'
+
+        // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+        compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
+
+        // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+        compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.2.0'
+
+        // https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter
+        compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.7'
+
+        //==== 阿里云
+        // https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client
+        compile group: 'com.aliyun.openservices', name: 'ons-client', version: '1.7.0.Final'
+        // https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss
+        compile group: 'com.aliyun.oss', name: 'aliyun-sdk-oss', version: '2.8.2'
+
+        //==== json
+        // https://mvnrepository.com/artifact/com.alibaba/fastjson
+        compile group: 'com.alibaba', name: 'fastjson', version: '1.2.38'
+        // https://mvnrepository.com/artifact/com.google.code.gson/gson
+        compile group: 'com.google.code.gson', name: 'gson', version: '2.8.1'
+
+        //==== http 请求
+        // https://mvnrepository.com/artifact/com.github.kevinsawicki/http-request
+        compile group: 'com.github.kevinsawicki', name: 'http-request', version: '6.0'
+
+        //==== apache common
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+        // https://mvnrepository.com/artifact/commons-codec/commons-codec
+        compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+
+        // 加密库
+        // https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16
+        compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.46'
+
+        // 时间工具库 https://mvnrepository.com/artifact/joda-time/joda-time
+        compile group: 'joda-time', name: 'joda-time', version: '2.10'
+
+        //===== 测试
+        // https://mvnrepository.com/artifact/org.mockito/mockito-all
+        testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.5.RELEASE'
+
+    }
+
+    repositories {
+        repositories {
+            mavenLocal()
+            maven {
+                url "http://maven.aliyun.com/nexus/content/groups/public/"
+            }
+            mavenCentral()
+        }
+    }
+
+    //这里一定得要。在多模块下，不然编译失败，因为不会把信赖模块给打包。
+    jar {
+        enabled = true
+        baseName = "mams"
+    }
+
+
+    /* bootJar {
+         classifier = 'app'
+     }*/
+}

@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+Menu Authority Management System(菜单权限管理系统) 
+----------------------
 
-You can use the [editor on GitHub](https://github.com/kermitmei/mams/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# 简介
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+mams是一套菜单和权限管理的系统，用户管理用户可访问的目录，或者用户所拥有的权限。
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# 数据依赖
 
-```markdown
-Syntax highlighted code block
+mams需要在mysql 5.7+的版本上(需支持JSON存储)，导入三个表:
 
-# Header 1
-## Header 2
-### Header 3
+mams_auth:  保存权限信息。
+mams_menu:  保存菜单信息。
+mams_group: 保存组信息。
 
-- Bulleted
-- List
+详情请见: 文件mams-create-tables.sql。
 
-1. Numbered
-2. List
+# 用法
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kermitmei/mams/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

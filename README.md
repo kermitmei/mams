@@ -18,4 +18,16 @@ mams_group: 保存组信息。
 
 # 用法
 
+在build.gradle中加入如下配置：
 
+repositories {
+    maven {
+        url "https://github.com/kermitmei/public-maven-repo/raw/repository/"
+    }
+}
+    
+dependencies {
+
+    // 权限管理系统https://github.com/kermitmei/public-maven-repo/raw/
+    compile group: 'com.california', name: 'mams', version: '0.0.1'
+}

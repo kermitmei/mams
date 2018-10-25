@@ -55,6 +55,7 @@ public interface MamsService {
     MamsGroup updateGroup(String groupKid, String name, String comment);
 
 
+
     /**
      * 将列表中的成员加入组（不校验kid是否存在）
      *

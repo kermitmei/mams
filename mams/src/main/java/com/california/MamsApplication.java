@@ -1,4 +1,4 @@
-package com.california.mams;
+package com.california;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -7,14 +7,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.ApplicationContext;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by ffn on 21/10/18.
  */
-@EnableScheduling
 @EnableTransactionManagement
 @EnableConfigurationProperties
 @MapperScan("com.california.mams.orm.dao")
@@ -28,7 +25,7 @@ public class MamsApplication implements CommandLineRunner {
      * Springboot应用程序入口
      */
     public static void main(String[] args) {
-        act = SpringApplication.run(MamsApplication.class, args);
+        SpringApplication.run(MamsApplication.class, args);
     }
 
     @Override

@@ -11,6 +11,35 @@ plugins {
     id 'java-library'
 }
 
+//定义打包的集合
+sourceSets {
+    main {
+        java {
+            exclude "com/california/mams/*.java"
+        }
+
+        resources {
+            exclude "*.properties"
+        }
+    }
+}
+
+processResources {
+    from('src/main/java') {
+        include '**/*.xml'
+    }
+}
+
+group = 'com.california'
+version = '0.0.6'
+description = 'Mams'
+sourceCompatibility = 1.8
+
+
+configurations {
+    extraLibs
+}
+
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
@@ -83,4 +112,13 @@ repositories {
     jcenter()
 }
 
-version = '0.0.4'
+//打包classes文件
+task mamsLib(type: Jar, dependsOn: classes) {
+    classifier = ''
+    from sourceSets.main.output
+}
+
+artifacts {
+    archives mamsLib
+}
+

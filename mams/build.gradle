@@ -22,17 +22,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.0.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.1.0.RELEASE'
 
     // spring aop
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.0.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.0.RELEASE'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
-    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.0.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.1.0.RELEASE'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-properties-migrator
-    compile group: 'org.springframework.boot', name: 'spring-boot-properties-migrator', version: '2.0.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-properties-migrator', version: '2.1.0.RELEASE'
 
     // === mysql
     // https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter
@@ -56,6 +56,7 @@ dependencies {
 
     //==== apache common
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+    
     // https://mvnrepository.com/artifact/commons-codec/commons-codec
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
 
@@ -71,7 +72,7 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.5.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.0.RELEASE'
 
 }
 
@@ -82,4 +83,4 @@ repositories {
     jcenter()
 }
 
-version = '0.0.3'
+version = '0.0.4'

@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -21,12 +20,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.california.mams.orm.dao")
 @SpringBootApplication(scanBasePackages = {"com.california.mams"})
 public class MamsApplication implements CommandLineRunner {
-
-    /**
-     * 保存spring上下文，一些不便注入的静态方法使用！
-     * 使用时用public
-     */
-    private static ApplicationContext act;
 
     //日志
     private static final Logger logger = LoggerFactory.getLogger(MamsApplication.class);

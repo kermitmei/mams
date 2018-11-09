@@ -6,6 +6,16 @@
  * user guide available at https://docs.gradle.org/4.10.2/userguide/java_library_plugin.html
  */
 
+buildscript {
+    ext {
+        springBootVersion = '2.1.0.RELEASE'
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
@@ -14,6 +24,8 @@ plugins {
 //定义打包的集合
 sourceSets {
     main {
+        /*
+        //编译库时使用的配置
         java {
             exclude "com/california/mams/*.java"
         }
@@ -21,6 +33,10 @@ sourceSets {
         resources {
             exclude "*.properties"
         }
+        */
+
+        //启用测试用例时使用的配置
+
     }
 }
 
@@ -122,3 +138,26 @@ artifacts {
     archives mamsLib
 }
 
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+jar {
+    baseName = 'mams'
+    // 这里不写版本号，主要是保证编译出来的文件名固定，方便Dockerfile编写
+    // version = '1.0.0'
+}
+
+//bootJar {
+//    manifest {
+//        attributes 'Start-Class': 'com.california.mams.MamsApplication'
+//    }
+//}
